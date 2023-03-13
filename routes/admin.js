@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var adminHelpers = require('../Helpers/adminHelpers');
+const mailer = require('../Helpers/mailer');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -24,7 +25,7 @@ router.post('/signup', (req, res) => {
 
   adminHelpers.DoSignup(user).then((result) => {
   //  console.log("result: ", result);
-    res.json({message: result});
+    res.json({result});
   })
 })
 
@@ -34,6 +35,13 @@ router.post('/login',(req,res)=>{
     res.json({UserStatus})
   })
 
+})
+
+router.post('/feedback',(req,res)=>{
+  console.log(req.body)
+  mailer.sendFeedback(req.body).then((status)=>{
+    res.json({status})
+  })
 })
 
 module.exports = router;

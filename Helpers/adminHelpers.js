@@ -7,7 +7,7 @@ const { response } = require('../app');
 module.exports = {
     DoSignup: (user) => {
         return new Promise(async (resolve, reject) => {
-            var Status
+            var Status = {}
             var HaveUser
             var anyUser
 
@@ -30,7 +30,7 @@ module.exports = {
                     await db.get().collection(collection.ADMIN_COLLECTION).insertOne(user).then((response) => {
                         //  console.log(response)
                         if (response.insertedId) {
-                            Status = true
+                            Status.LoggedIn = true
                         }
                     });
                 } else {
@@ -49,7 +49,8 @@ module.exports = {
                     await db.get().collection(collection.ADMIN_COLLECTION).insertOne(user).then((response) => {
                         //  console.log(response)
                         if (response.insertedId) {
-                            Status = true
+                            Status.LoggedIn = true
+                            Status.user = user;
                         }
                     });
                 } else {
