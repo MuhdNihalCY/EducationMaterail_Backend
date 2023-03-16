@@ -1,0 +1,448 @@
+<section>
+    <!-- login popup -->
+    <div class="Fullpage " id="myForm">
+        <div class="form-popup">
+            <form action="" id="login-form" method="post" class="form-container">
+                <div class="LoginHead">
+                    <h2 class="loginHeadText">Login</h2>
+                    <img onclick="closeForm()" src="images/close-button.png" alt="" class="CloseButtonLogin">
+                </div>
+                <label for="email"><b>Email</b></label>
+                <input type="email" id="LoginEmail" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" id="LoginPaasword" placeholder="Enter Password" name="psw" required>
+
+                <button type="button" onclick="DoLogin()" class="btn">Login</button>
+                <a class="btn" onclick="OpenSignup()">Sign Up</a>
+                <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+            </form>
+        </div>
+    </div>
+    <!-- signup POpup -->
+    <div class="SignupFullPage" id="Signup">
+        <div class="form-popup">
+            <form action="" id="signup-form" method="POST" class="form-container">
+                <div class="LoginHead">
+                    <h2 class="loginHeadText">Sign Up</h2>
+                    <img onclick="closeForm()" src="images/close-button.png" alt="" class="CloseButtonLogin">
+                </div>
+                <label for="name"><b>name</b></label>
+                <input id="name" type="text" placeholder="Enter name" name="email" required>
+
+                <label for="email"><b>Email</b></label>
+                <input id="email" type="email" placeholder="Enter Email" name="email" required>
+
+                <label for="number"><b>Mob Number</b></label>
+                <input id="number" type="number" placeholder="Enter number" name="number" required>
+
+
+                <label for="psw"><b>Password</b></label>
+                <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="button" onclick="DoSignup()" class="btn">Sign Up</button>
+                <a class="btn" onclick="openForm()">Login</a>
+                <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+            </form>
+        </div>
+    </div>
+
+
+</section>
+<!-- popup ends here -->
+
+<header>
+    <div class="container">
+        <div class="HeaderMain">
+            <div class="leftSide">
+                <img class="HeadIcon" src="images/education.png" alt="">
+                <h1 class="Heading">COURSE.COM</h1>
+            </div>
+            <div class="RtSide">
+                <img class="SavedTag" src="images/SAVED.png" alt="">
+                <!-- <h2 class="LoginBTN"><a href="">Login</a></h2> -->
+                <div id="UserIcon" onclick="openForm()">
+                    <img class="UserIcon" src="images/user.png" alt="">
+                </div>
+                <div class="AdminIcon" onclick="Logout()" id="AdminIcon">
+                    <p class="FirstLetterOfUSer" id="FirstLetterOfUSer">m</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="SearchSection">
+    <div class="container">
+        <h2 class="FindText">Find Materials</h2>
+        <div class="SearchArea row">
+
+            <div class="RowSearch">
+                <div class="BranchSearchDiv">
+                    <label for="Branch" class="SearchLabel">Branch</label>
+                    <select class="custom-select" name="" id="Branch">
+                        <option value="" selected disabled>Select Branch</option>
+                        <option value="">Computer Engineering</option>
+                        <option value="">Electronic</option>
+                        <option value="">Tool and Die</option>
+                    </select>
+                </div>
+
+                <div class="BranchSearchDiv">
+                    <label for="Branch" class="SearchLabel">Revision</label>
+                    <select class="custom-select" name="" id="Branch">
+                        <option value="" selected disabled>Select Revision</option>
+                        <option value="">2015</option>
+                        <option value="">2021</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="RowSearch">
+                <div class="BranchSearchDiv">
+                    <label for="Branch" class="SearchLabel">Semester</label>
+                    <select class="custom-select" name="" id="Branch">
+                        <option value="" selected disabled>Select Semester</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                        <option value="">6</option>
+                    </select>
+                </div>
+
+                <div class="BranchSearchDiv">
+                    <label for="Branch" class="SearchLabel">Branch</label>
+                    <select class="custom-select" name="" id="Branch">
+                        <option value="" selected disabled>Select Subject</option>
+                        <option value="">DCP</option>
+                        <option value="">OOP</option>
+                        <option value="">CA</option>
+                        <option value="">DBMS</option>
+                        <option value="">EVS</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Search Section Ends here -->
+
+<!-- Add File Starts HEre -->
+<section>
+    <div class="container">
+        <div id="AddFormDiv" class="AddFormDiv">
+            <form action="/addFile" enctype="multipart/form-data" method="post">
+                <div class="row">
+                    <div class="MaterialType col-12 col-md-6">
+                        <label for="MaterialType">Material Type</label>
+                        <br>
+                        <select required onchange="TypeSelected()" name="MaterialType" class="col-10" id="MaterialType">
+                            <option value="" selected disabled>Select Type</option>
+                            <option value="Video">Video</option>
+                            <option value="Notes">Notes</option>
+                            <option value="Q&P">Q&P</option>
+                        </select>
+                    </div>
+
+                    <div id="link" class="LINK col-12 col-md-6">
+                        <label for="Link">Material youtube Link</label>
+                        <br>
+                        <input id="Link" type="text" class="col-10" name="link" placeholder="Past Link Here">
+                    </div>
+
+                    <div id="File" class="uploadfile col-12 col-md-6">
+                        <label for="file">Material file Upload</label>
+                        <br>
+                        <input id="file" type="file" accept="application/pdf" class="col-10" name="file">
+                    </div>
+
+                    <div id="title" class="title col-12 col-md-6">
+                        <label for="Title">Material Title</label>
+                        <br>
+                        <input required id="Title" type="text" placeholder="Title" class="col-10" name="Title">
+                    </div>
+
+                    <div id="stream" class="title col-12 col-md-6">
+                        <label for="Stream">Material Stream</label>
+                        <br>
+                        <input required id="Stream" type="text" placeholder="Stream" class="col-10" name="stream">
+                    </div>
+
+                    <div id="sem" class="title col-12 col-md-6">
+                        <label for="Sem">Material Semester</label>
+                        <br>
+                        <input required id="Sem" type="number" placeholder="Semester in digits" class="col-10"
+                            name="Sem">
+                    </div>
+
+                    <div id="rev" class="title col-12 col-md-6">
+                        <label for="Rev">Material Revision</label>
+                        <br>
+                        <input required id="Rev" type="number" placeholder="Revision in digits" class="col-10"
+                            name="Rev">
+                    </div>
+
+                    <div id="sub" class="title col-12 col-md-6">
+                        <label for="Sub">Material Subject</label>
+                        <br>
+                        <input required id="Sub" type="text" placeholder="Subject" class="col-10" name="Sub">
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="Add FIle" class="btn btn-primary col-12">
+                    </div>
+                    {{!-- <button id="AddBTN" onclick="AddMaterial()">Add Material</button> --}}
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Add files Ends Here -->
+
+
+
+
+<!-- Resoures section starts -->
+<section>
+    <!-- <div class="Resources">
+            <h2 class="ResourcesHeading">Resources</h2>
+        </div> -->
+    <div class="VideoResources">
+        <div class="container">
+            <div class="VideoHeadSec">
+                <h2 class="VideoHeading">Video</h2>
+                <!-- add More Video -->
+                <div id="addVideo" class=" addVideo">
+                    <p class="addText">Add Video</p>
+                    <img src="images/plus.png" alt="" class="Add">
+                </div>
+                <!-- add More Video Ends HEre -->
+            </div>
+
+            <div class="VideoRow">
+                <div class="OneVideo">
+                    <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="OneVideo">
+                    <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="OneVideo">
+                    <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="OneVideo">
+                    <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="OneVideo">
+                    <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+
+                <!-- MoreVideos Load -->
+                <!-- <div class=" addVideo" onclick="LoadMoreVideos()">
+                        <img src="images/loading.png" alt="" class="Load">
+                        <p class="LoadText">Click Here to Load More ...</p>
+                    </div> -->
+                <!-- Load More Videos -->
+
+                <!-- add More Video -->
+                <!-- <div class=" addVideo">
+                        <img src="images/plus.png" alt="" class="Add">
+                    </div> -->
+                <!-- add More Video Ends HEre -->
+            </div>
+            <!-- MoreVideos Load -->
+            <div class=" MoreVideo" onclick="LoadMoreVideos()">
+                <p class="LoadText">Load More ...</p>
+                <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load">
+            </div>
+            <!-- MoreVideos Load -->
+
+            <!-- Video in Grid -->
+            <div id="VideoGRid" class="videoGrid">
+                <div class="GridVideo">
+                    <div class="OneVideoGrid col-12 col-md-6 col-lg-3">
+                        <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="OneVideoGrid">
+                        <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="OneVideoGrid">
+                        <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="OneVideoGrid">
+                        <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="OneVideoGrid">
+                        <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div onclick="ShowLessVeideo()" class="showLessDiv">
+                <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load lessLoad">
+                <p class="ShowLessText">Show less...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Notes Resources -->
+    <div class="NotesResources">
+        <div class="container">
+            <div class="NotesHeadDiv">
+                <h2 class="NotesHead">Notes</h2>
+                <div id="addnote" class=" addVideo">
+                    <p class="addText">Add Notes</p>
+                    <img src="images/plus.png" alt="" class="Add">
+                </div>
+            </div>
+            <div class="NotesRow">
+                <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+            </div>
+            <div class=" addNotes MoreNotes" onclick="LoadMoreNotes()">
+                <p class="LoadText">Load More ...</p>
+                <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load">
+            </div>
+            <div class="NotesGrid">
+                <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+            </div>
+            <div onclick="ShowLessNotes()" class="showLessDivNotes">
+                <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load lessLoad">
+                <p class="ShowLessText">Show less...</p>
+            </div>
+        </div>
+    </div>
+    <!-- Notes Ends Here -->
+
+
+    <!-- QP Resources -->
+    <div class="Q_Presources">
+        <div class="container">
+            <div class="Q_PHeadDiv">
+                <h2 class="Q_PHead">Q&P</h2>
+                <div id="addQ_P" class=" addQ_P">
+                    <p class="addText">Add Q&P</p>
+                    <img src="images/plus.png" alt="" class="Add">
+                </div>
+            </div>
+            <div class="Q_PRow">
+                <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+            </div>
+            <div class=" addNotes MoreQ_P" onclick="LoadMoreQ_P()">
+                <p class="LoadText">Load More ...</p>
+                <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load">
+            </div>
+            <div class="Q_PGrid">
+                <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+            </div>
+            <div onclick="ShowLessQ_P()" class="showLessDivQ_P">
+                <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load lessLoad">
+                <p class="ShowLessText">Show less...</p>
+            </div>
+        </div>
+    </div>
+    <!-- QP Ends Here -->
+</section>
+
+<!-- Feedback -->
+<section>
+
+    <div class="container">
+        <hr>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class=" feedbackLabel">Feedback Here :)</label>
+            <input type="email" id="emailForFeedback" placeholder="It would be great, if you share your Email Address">
+            <textarea class="feedbackTexarea" id="Feedback"
+                placeholder="Please share your feedback and any suggestions you may have. Additionally, let us know what types of documents you need, and we'll do our best to provide them."
+                rows="3"></textarea>
+            <button class="feedbackBTN" onclick="sendFeedback()">Send Feedback</button>
+        </div>
+    </div>
+
+</section>

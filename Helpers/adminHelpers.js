@@ -92,5 +92,15 @@ module.exports = {
                 }
             })
         })
+    },
+    addFiles:(data)=>{
+        console.log(data)
+        return new Promise(async (resolve,reject)=>{
+            await db.get().collection(collection.FILES).insertOne(data).then((response)=>{
+                console.log(response)
+                var id = response.insertedId.toString();
+                resolve(id)
+            })
+        })
     }
 }
