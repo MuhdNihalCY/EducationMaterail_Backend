@@ -51,7 +51,7 @@ router.post('/addFile', (req, res) => {
   console.log(req.body);
   // console.log(req.files.file);
 
-  if (req.files.file) {
+  if (req.files) {
     var file = req.files.file
   }
   // console.log(__dirname)
@@ -61,18 +61,18 @@ router.post('/addFile', (req, res) => {
   //  console.log(filename)
 
   adminHelpers.addFiles(req.body).then((id) => {
-    if (req.files.file) {
+    if (req.files) {
       file.mv('./public/files/' + id + ".pdf", (err) => {
         if (!err) {
           status = true;
-          res.render('users/home');
+          res.redirect('/');
         } else {
           console.log("Error at img1 " + err)
         }
       })
     }else{
       status = true;
-      res.render('users/home');
+      res.redirect('/');
     }
   })
 
