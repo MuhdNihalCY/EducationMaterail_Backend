@@ -143,7 +143,7 @@
                             <option value="" selected disabled>Select Type</option>
                             <option value="Video">Video</option>
                             <option value="Notes">Notes</option>
-                            <option value="Q&P">Q&P</option>
+                            <option value="Q_P">Q&P</option>
                         </select>
                     </div>
 
@@ -222,7 +222,19 @@
             </div>
 
             <div class="VideoRow">
+                {{#if Video}}
+                {{#each Video }}
                 <div class="OneVideo">
+                    <iframe class="VideoClass" src="{{link}}" frameborder="0" allow="autoplay; encrypted-media"
+                        allowfullscreen></iframe>
+                </div>
+                {{/each}}
+                {{else}}
+                <p class="NoDocument">No Videos Available for this filter</p>
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                    Here</a>
+                {{/if}}
+                {{!-- <div class="OneVideo">
                     <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
                         allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
@@ -237,11 +249,7 @@
                 <div class="OneVideo">
                     <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
                         allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-                <div class="OneVideo">
-                    <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
-                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
+                </div> --}}
 
                 <!-- MoreVideos Load -->
                 <!-- <div class=" addVideo" onclick="LoadMoreVideos()">
@@ -266,7 +274,20 @@
             <!-- Video in Grid -->
             <div id="VideoGRid" class="videoGrid">
                 <div class="GridVideo">
-                    <div class="OneVideoGrid col-12 col-md-6 col-lg-3">
+                    {{#if Video}}
+                    {{#each Video }}
+                    <div class="OneVideo">
+                        <iframe class="VideoClass" src="{{link}}" frameborder="0" allow="autoplay; encrypted-media"
+                            allowfullscreen></iframe>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    <p class="NoDocument">No Videos Available for this filter</p>
+                    <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:-
+                        Click
+                        Here</a>
+                    {{/if}}
+                    {{!-- <div class="OneVideoGrid">
                         <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
                             allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
@@ -281,11 +302,7 @@
                     <div class="OneVideoGrid">
                         <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
                             allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="OneVideoGrid">
-                        <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
-                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div onclick="ShowLessVeideo()" class="showLessDiv">
@@ -307,7 +324,20 @@
                 </div>
             </div>
             <div class="NotesRow">
+                {{#if Notes}}
+                {{#each Notes }}
                 <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">{{Title}}</p>
+                    <a href="/admin/downoadPDF/{{_id}}" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                {{/each}}
+                {{else}}
+                <p class="NoDocument">No Notes Available for this filter</p>
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                    Here</a>
+                {{/if}}
+                {{!-- <div class="NotesOne">
                     <img src="images/pdf-file.png" alt="" class="PdfIcon">
                     <p class="NotesText">8085 Microprocessor Architecture</p>
                     <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
@@ -321,19 +351,27 @@
                     <img src="images/pdf-file.png" alt="" class="PdfIcon">
                     <p class="NotesText">8085 Microprocessor Architecture</p>
                     <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
-                </div>
-                <div class="NotesOne">
-                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
-                    <p class="NotesText">8085 Microprocessor Architecture</p>
-                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
-                </div>
+                </div> --}}
             </div>
             <div class=" addNotes MoreNotes" onclick="LoadMoreNotes()">
                 <p class="LoadText">Load More ...</p>
                 <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load">
             </div>
             <div class="NotesGrid">
+                {{#if Notes}}
+                {{#each Notes }}
                 <div class="NotesOne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">{{Title}}</p>
+                    <a href="/admin/downoadPDF/{{_id}}" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                {{/each}}
+                {{else}}
+                <p class="NoDocument">No Notes Available for this filter</p>
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                    Here</a>
+                {{/if}}
+                {{!-- <div class="NotesOne">
                     <img src="images/pdf-file.png" alt="" class="PdfIcon">
                     <p class="NotesText">8085 Microprocessor Architecture</p>
                     <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
@@ -352,7 +390,7 @@
                     <img src="images/pdf-file.png" alt="" class="PdfIcon">
                     <p class="NotesText">8085 Microprocessor Architecture</p>
                     <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
-                </div>
+                </div> --}}
             </div>
             <div onclick="ShowLessNotes()" class="showLessDivNotes">
                 <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load lessLoad">
@@ -374,7 +412,20 @@
                 </div>
             </div>
             <div class="Q_PRow">
+                {{#if Q_P}}
+                {{#each Q_P}}
                 <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                {{/each}}
+                {{else}}
+                <p class="NoDocument">No Question Papers Available for this filter</p>
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                    Here</a>
+                {{/if}}
+                {{!-- <div class="Q_POne">
                     <img src="images/pdf-file.png" alt="" class="PdfIcon">
                     <p class="NotesText">8085 Microprocessor Architecture</p>
                     <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
@@ -388,19 +439,27 @@
                     <img src="images/pdf-file.png" alt="" class="PdfIcon">
                     <p class="NotesText">8085 Microprocessor Architecture</p>
                     <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
-                </div>
-                <div class="Q_POne">
-                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
-                    <p class="NotesText">8085 Microprocessor Architecture</p>
-                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
-                </div>
+                </div> --}}
             </div>
             <div class=" addNotes MoreQ_P" onclick="LoadMoreQ_P()">
                 <p class="LoadText">Load More ...</p>
                 <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load">
             </div>
             <div class="Q_PGrid">
+                {{#if Q_P}}
+                {{#each Q_P}}
                 <div class="Q_POne">
+                    <img src="images/pdf-file.png" alt="" class="PdfIcon">
+                    <p class="NotesText">8085 Microprocessor Architecture</p>
+                    <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
+                </div>
+                {{/each}}
+                {{else}}
+                <p class="NoDocument">No Question Papers Available for this filter</p>
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                    Here</a>
+                {{/if}}
+                {{!-- <div class="Q_POne">
                     <img src="images/pdf-file.png" alt="" class="PdfIcon">
                     <p class="NotesText">8085 Microprocessor Architecture</p>
                     <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
@@ -419,7 +478,7 @@
                     <img src="images/pdf-file.png" alt="" class="PdfIcon">
                     <p class="NotesText">8085 Microprocessor Architecture</p>
                     <a href="" class="DownloadBTN btn btn-primary">Download PDF</a>
-                </div>
+                </div> --}}
             </div>
             <div onclick="ShowLessQ_P()" class="showLessDivQ_P">
                 <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load lessLoad">
@@ -431,7 +490,7 @@
 </section>
 
 <!-- Feedback -->
-<section>
+<section id="Feedback">
 
     <div class="container">
         <hr>
@@ -441,7 +500,7 @@
             <textarea class="feedbackTexarea" id="Feedback"
                 placeholder="Please share your feedback and any suggestions you may have. Additionally, let us know what types of documents you need, and we'll do our best to provide them."
                 rows="3"></textarea>
-            <button class="feedbackBTN" onclick="sendFeedback()">Send Feedback</button>
+            <button id="FeedbackTag" class="feedbackBTN" onclick="sendFeedback()">Send Feedback</button>
         </div>
     </div>
 

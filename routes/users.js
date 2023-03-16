@@ -8,7 +8,13 @@ const { Stream } = require('stream');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('users/home');  
+  adminHelpers.GetHomeMaterials().then((data)=>{
+    // console.log(data);
+    var Video = data.Video;
+    var Notes = data.Notes;
+    var Q_P = data.Q_P;
+    res.render('users/home',{Video,Notes,Q_P});  
+  })
 });
 
 
@@ -76,6 +82,10 @@ router.post('/addFile', (req, res) => {
     }
   })
 
+})
+
+router.get('/admin/downoadPDF/:id',(req,res)=>{
+  res.download('./public/files/' + req.params.id + ".pdf")
 })
 
 module.exports = router;

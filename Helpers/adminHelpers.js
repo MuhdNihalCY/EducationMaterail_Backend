@@ -93,13 +93,49 @@ module.exports = {
             })
         })
     },
-    addFiles:(data)=>{
+    addFiles: (data) => {
         console.log(data)
-        return new Promise(async (resolve,reject)=>{
-            await db.get().collection(collection.FILES).insertOne(data).then((response)=>{
+        return new Promise(async (resolve, reject) => {
+            await db.get().collection(collection.FILES).insertOne(data).then((response) => {
                 console.log(response)
                 var id = response.insertedId.toString();
                 resolve(id)
+            })
+        })
+    },
+    GetHomeMaterials: () => {
+        return new Promise(async (resolve, reject) => {
+            await db.get().collection(collection.FILES).find().toArray().then((response) => {
+                // console.log("Sem 1 results",response);
+                var notes = response.filter(material => material.MaterialType === 'Notes');
+                var video = response.filter(material => material.MaterialType === 'Video');
+                var Q_P = response.filter(material => material.MaterialType === 'Q_P');
+                // console.log("Notes: ",notes);
+
+                // const arrays = [notes, video, Q_P];
+
+                // arrays.forEach(array => {
+                //     const items = array.slice(0, 20);
+
+                //     if (items.length <= 20) {
+                //         console.log(items);
+                //     } else {
+                //         console.log(items.slice(0, 20));
+                //     }
+
+                   
+                // });
+
+                // notes = arrays[0]
+                // video = arrays[1]
+                // Q_P = arrays[2]
+
+                var data = {
+                    Notes: notes,
+                    Video: video,
+                    Q_P: Q_P
+                }
+                resolve(data)
             })
         })
     }
