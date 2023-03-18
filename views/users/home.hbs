@@ -74,58 +74,62 @@
 
 <section class="SearchSection">
     <div class="container">
-        <h2 class="FindText">Find Materials</h2>
-        <div class="SearchArea row">
+        <form action="/getFiles" method="post" enctype="multipart/form-data">
+            <h2 class="FindText">Find Materials</h2>
+            <div class="SearchArea row">
 
-            <div class="RowSearch">
-                <div class="BranchSearchDiv">
-                    <label for="Branch" class="SearchLabel">Branch</label>
-                    <select class="custom-select" name="" id="Branch">
-                        <option value="" selected disabled>Select Branch</option>
-                        <option value="">Computer Engineering</option>
-                        <option value="">Electronic</option>
-                        <option value="">Tool and Die</option>
-                    </select>
+                <div class="RowSearch">
+                    <div class="BranchSearchDiv">
+                        <label for="Branch" class="SearchLabel">Branch</label>
+                        <select required name="Branch" onchange="FilterChange()" class="custom-select" name=""
+                            id="Branch">
+                            <option value="" selected disabled>Select Branch</option>
+                            <option value="ct">Computer Engineering</option>
+                            <option value="ece">Electronic</option>
+                            <option value="td">Tool and Die</option>
+                        </select>
+                    </div>
+
+                    <div class="BranchSearchDiv">
+                        <label for="Branch" class="SearchLabel">Revision</label>
+                        <select required name="Revision" onchange="FilterChange()" class="custom-select" name=""
+                            id="Revision">
+                            <option value="" selected disabled>Select Revision</option>
+                            <option value="2015">2015</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="BranchSearchDiv">
-                    <label for="Branch" class="SearchLabel">Revision</label>
-                    <select class="custom-select" name="" id="Branch">
-                        <option value="" selected disabled>Select Revision</option>
-                        <option value="">2015</option>
-                        <option value="">2021</option>
-                    </select>
+                <div class="RowSearch">
+                    <div class="BranchSearchDiv">
+                        <label for="Branch" class="SearchLabel">Semester</label>
+                        <select required name="Semester" onchange="FilterChange()" class="custom-select" name=""
+                            id="Semester">
+                            <option value="" selected disabled>Select Semester</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+
+                    <div class="BranchSearchDiv">
+                        <label for="Branch" class="SearchLabel">Branch</label>
+                        <select required name="Subject" class="custom-select" name="" id="Subject">
+                            <option value="" selected disabled>Select Subject</option>
+
+                        </select>
+                    </div>
                 </div>
+                <div class="ApplyFilter">
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </div>
+
             </div>
-
-            <div class="RowSearch">
-                <div class="BranchSearchDiv">
-                    <label for="Branch" class="SearchLabel">Semester</label>
-                    <select class="custom-select" name="" id="Branch">
-                        <option value="" selected disabled>Select Semester</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
-                        <option value="">6</option>
-                    </select>
-                </div>
-
-                <div class="BranchSearchDiv">
-                    <label for="Branch" class="SearchLabel">Branch</label>
-                    <select class="custom-select" name="" id="Branch">
-                        <option value="" selected disabled>Select Subject</option>
-                        <option value="">DCP</option>
-                        <option value="">OOP</option>
-                        <option value="">CA</option>
-                        <option value="">DBMS</option>
-                        <option value="">EVS</option>
-                    </select>
-                </div>
-            </div>
-
-        </div>
+        </form>
     </div>
 </section>
 <!-- Search Section Ends here -->
@@ -168,27 +172,59 @@
                     <div id="stream" class="title col-12 col-md-6">
                         <label for="Stream">Material Stream</label>
                         <br>
-                        <input required id="Stream" type="text" placeholder="Stream" class="col-10" name="stream">
+                        {{!-- Stream Selecting to add --}}
+                        <select required name="stream" onchange="ADDFilterChange()" class="custom-select col-10" name="stream"
+                            id="AddBranch">
+                            <option value="" selected disabled>Select Branch</option>
+                            <option value="ct">Computer Engineering</option>
+                            <option value="ece">Electronic</option>
+                            <option value="td">Tool and Die</option>
+                        </select>
+                        {{!-- <input required id="Stream" type="text" placeholder="Stream" class="col-10" name="stream">
+                        --}}
                     </div>
 
                     <div id="sem" class="title col-12 col-md-6">
                         <label for="Sem">Material Semester</label>
                         <br>
-                        <input required id="Sem" type="number" placeholder="Semester in digits" class="col-10"
-                            name="Sem">
+                        {{!-- Add Semester --}}
+                        <select required name="Sem" onchange="ADDFilterChange()" class="custom-select col-10" name="Sem"
+                            id="AddSemester">
+                            <option value="" selected disabled>Select Semester</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        {{!-- <input required id="Sem" type="number" placeholder="Semester in digits" class="col-10"
+                            name="Sem"> --}}
                     </div>
 
                     <div id="rev" class="title col-12 col-md-6">
                         <label for="Rev">Material Revision</label>
                         <br>
-                        <input required id="Rev" type="number" placeholder="Revision in digits" class="col-10"
-                            name="Rev">
+                        {{!--Add select Rev --}}
+                        <select required name="Rev" onchange="ADDFilterChange()" class="custom-select col-10" name="Rev"
+                            id="AddRevision">
+                            <option value="" selected disabled>Select Revision</option>
+                            <option value="2015">2015</option>
+                            <option value="2021">2021</option>
+                        </select>
+                        {{!-- <input required id="Rev" type="number" placeholder="Revision in digits" class="col-10"
+                            name="Rev"> --}}
                     </div>
 
                     <div id="sub" class="title col-12 col-md-6">
                         <label for="Sub">Material Subject</label>
                         <br>
-                        <input required id="Sub" type="text" placeholder="Subject" class="col-10" name="Sub">
+                        {{!-- add Subject --}}
+                        <select required name="Sub" class="custom-select col-10"  id="AddSubject">
+                            <option value="" selected disabled>Select Subject</option>
+
+                        </select>
+                        {{!-- <input required id="Sub" type="text" placeholder="Subject" class="col-10" name="Sub"> --}}
                     </div>
                     <div class="submit">
                         <input type="submit" value="Add FIle" class="btn btn-primary col-12">
@@ -231,7 +267,8 @@
                 {{/each}}
                 {{else}}
                 <p class="NoDocument">No Videos Available for this filter</p>
-                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback
+                    -:- Click
                     Here</a>
                 {{/if}}
                 {{!-- <div class="OneVideo">
@@ -283,7 +320,8 @@
                     {{/each}}
                     {{else}}
                     <p class="NoDocument">No Videos Available for this filter</p>
-                    <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:-
+                    <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the
+                        feedback -:-
                         Click
                         Here</a>
                     {{/if}}
@@ -334,7 +372,8 @@
                 {{/each}}
                 {{else}}
                 <p class="NoDocument">No Notes Available for this filter</p>
-                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback
+                    -:- Click
                     Here</a>
                 {{/if}}
                 {{!-- <div class="NotesOne">
@@ -368,7 +407,8 @@
                 {{/each}}
                 {{else}}
                 <p class="NoDocument">No Notes Available for this filter</p>
-                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback
+                    -:- Click
                     Here</a>
                 {{/if}}
                 {{!-- <div class="NotesOne">
@@ -422,7 +462,8 @@
                 {{/each}}
                 {{else}}
                 <p class="NoDocument">No Question Papers Available for this filter</p>
-                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback
+                    -:- Click
                     Here</a>
                 {{/if}}
                 {{!-- <div class="Q_POne">
@@ -456,7 +497,8 @@
                 {{/each}}
                 {{else}}
                 <p class="NoDocument">No Question Papers Available for this filter</p>
-                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback -:- Click
+                <a href="#FeedbackTag" class="NoDocument">Please provide the needed documents details in the feedback
+                    -:- Click
                     Here</a>
                 {{/if}}
                 {{!-- <div class="Q_POne">

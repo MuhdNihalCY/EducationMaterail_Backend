@@ -119,7 +119,7 @@ header {
 .SearchSection {
   background-color: var(--light);
   width: 100%;
-  height: 240px;
+  height: 320px;
   padding-top: 10px;
 }
 
@@ -147,7 +147,10 @@ header {
   font-size: 10px;
 }
 
-#Branch {
+#Branch,
+#Revision,
+#Semester,
+#Subject {
   width: 90%;
   border: 1px var(--DarkLight) solid;
   border-radius: 10px;
@@ -157,6 +160,13 @@ header {
 
 .custom-select option {
   border-radius: 10px;
+}
+
+.ApplyFilter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -199,7 +209,6 @@ header {
   100% {
       transform: translateX(0);
   }
-
   100% {
       transform: translateX(-100%);
   }
@@ -486,9 +495,10 @@ label {
   height: 30px;
   /* border: 3px solid var(--bitLight); */
 
-} 
+}
 
-.addVideo, .addQ_P{
+.addVideo,
+.addQ_P {
   display: none;
 }
 
@@ -502,7 +512,8 @@ label {
 }
 
 .feedbackTexarea {
-  height: 170px; /* Change this value to adjust the height */
+  height: 170px;
+  /* Change this value to adjust the height */
   color: var(--DarkLight);
   background-color: var(--bitLight);
   border-radius: 15px;
@@ -522,9 +533,10 @@ label {
   -moz-appearance: none;
   appearance: none;
   /* border-radius: 0.25rem; */
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   font-size: 20px;
 }
+
 .feedbackBTN {
   width: 100%;
   margin: 20px 0;
@@ -565,15 +577,19 @@ label {
   margin-top: 25px;
 }
 
-#link, #File {
+#link,
+#File {
   display: none;
+  /*make it none*/
 }
 
 #AddFormDiv {
-  display: none;
+  display: block;
+  /*make it none*/
 }
 
-.AddFormDiv input, .AddFormDiv select {
+.AddFormDiv input,
+.AddFormDiv select {
   border-radius: 15px;
   padding: 5px;
   border: 1px solid var(--DarkLight);

@@ -123,13 +123,42 @@ module.exports = {
                 //         console.log(items.slice(0, 20));
                 //     }
 
-                   
+
                 // });
 
                 // notes = arrays[0]
                 // video = arrays[1]
                 // Q_P = arrays[2]
 
+                var data = {
+                    Notes: notes,
+                    Video: video,
+                    Q_P: Q_P
+                }
+                resolve(data)
+            })
+        })
+    },
+    getFiles: (data) => {
+        return new Promise(async (resolve, reject) => {
+            var video
+            var notes
+            var Q_P
+            //{ Branch: 'ct', Revision: '2015', Semester: '3', Subject: '3' }
+
+            await db.get().collection(collection.FILES).find({
+                $and: [
+                    // {"MaterialType": "Video"},
+                    { "stream": data.Branch },
+                    { "Sem": data.Semester },
+                    { "Rev": data.Revision },
+                    { "Sub": data.Subject }
+                ]
+            }).toArray().then((Files) => {
+                console.log(Files);
+                var notes = Files.filter(material => material.MaterialType === 'Notes');
+                var video = Files.filter(material => material.MaterialType === 'Video');
+                var Q_P = Files.filter(material => material.MaterialType === 'Q_P');
                 var data = {
                     Notes: notes,
                     Video: video,

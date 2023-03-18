@@ -456,3 +456,264 @@ function AddMaterial() {
         alert("Fill all data")
     }
 }
+
+function ADDFilterChange() {
+    var Branch = document.getElementById("AddBranch").value;
+    var Revision = document.getElementById("AddRevision").value;
+    var Semester = document.getElementById("AddSemester").value;
+    
+    var select = document.getElementById("AddSubject");
+    var id1 = "AddSubject";
+    while (select.options.length > 1) {
+        select.remove(0);
+    }
+
+    if (Branch && Revision && Semester) {
+        switch (Branch) {
+            case 'ct':
+                console.log("CT")
+                switch (Revision) {
+                    case '2021':
+                        switch (Semester) {
+                            case '1':
+                                ct2021s1(id1);
+                                break;
+                            case '2':
+                                ct2021s2(id1);
+                                break;
+                            case '3':
+                                ct2021s3(id1);
+                                break;
+                            case '4':
+                                ct2021s4(id1);
+                                break;
+                        }
+                        break;
+                    case '2015':
+                        switch (Semester) {
+                            case '1':
+                                ct2015s1(id1);
+                                break;
+                            case '2':
+                                ct2015s2(id1);
+                                break;
+                            case '3':
+                                ct2015s3(id1);
+                                break;
+                            case '4':
+                                ct2015s4(id1);
+                                break;
+                            case '5':
+                                ct2015s5(id1);
+                                break;
+                            case '6':
+                                ct2015s6(id1);
+                                break;
+                        }
+                }
+        }
+    }
+
+
+}
+
+
+function FilterChange() {
+    var Branch = document.getElementById("Branch").value;
+    var Revision = document.getElementById("Revision").value;
+    var Semester = document.getElementById("Semester").value;
+
+
+    var select = document.getElementById("Subject");
+
+    var id1 = "Subject"
+    while (select.options.length > 1) {
+        select.remove(0);
+    }
+
+
+
+    if (Branch && Revision && Semester) {
+        switch (Branch) {
+            case 'ct':
+                console.log("CT")
+                switch (Revision) {
+                    case '2021':
+                        switch (Semester) {
+                            case '1':
+                                ct2021s1(id1);
+                                break;
+                            case '2':
+                                ct2021s2(id1);
+                                break;
+                            case '3':
+                                ct2021s3(id1);
+                                break;
+                            case '4':
+                                ct2021s4(id1);
+                                break;
+                        }
+                        break;
+                    case '2015':
+                        switch (Semester) {
+                            case '1':
+                                ct2015s1(id1);
+                                break;
+                            case '2':
+                                ct2015s2(id1);
+                                break;
+                            case '3':
+                                ct2015s3(id1);
+                                break;
+                            case '4':
+                                ct2015s4(id1);
+                                break;
+                            case '5':
+                                ct2015s5(id1);
+                                break;
+                            case '6':
+                                ct2015s6(id1);
+                                break;
+                        }
+                }
+        }
+    }
+
+}
+
+function ct2015s6(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['	Microcontrollers', 'Computer Networks', 'Smart Device Programming', 'Mobile Communication', 'Network Infrastructure Mangagement', 'Software Testing', 'Microcontroller Lab', 'Smart Device Programming Lab', 'Project & Seminar'] // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+
+function ct2015s5(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['Project Management & Software Engineering', 'Web Programming', 'Microprocessor and Interfacing', 'Information Security', 'Ethical Hacking', 'Cloud Computing', 'Web Programming Lab', 'Microprocessor Lab', 'Industrial Training/Industrial Visit/Collaborative work', 'Computer Network Engineering Lab', 'Project & Seminar'] // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+
+function ct2015s4(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['Data Communication', 'Operating Systems', 'Data Structures', 'Computer System Hardware', 'System Administration Lab', 'Data Structures Lab', 'Computer System Hardware Lab', 'Application Development using Java'] // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+
+
+function ct2015s3(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['Digital Computer Principles', 'object Oriented Programming Lab', 'Digital Computer Principles Lab', 'Environmental Science & Disaster Management', 'Database Management System', '	Computer Architecture', 'Object Oriented Programming through C++']; // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+
+function ct2015s2(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['English for Communication II', 'Engineering Mathematics II', 'Engineering Physics II', 'Engineering Chemistry II', 'Programming in C', 'Engineering Graphics', 'Workshop Practice', 'Engineering Science Lab II', 'Programming in C Lab', 'Life Skill']; // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+function ct2015s1(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['English for Communication I', 'Engineering Mathematics I', 'Engineering Physics I', 'Engineering Chemistry I', 'Engineering Graphics', 'Health & Physical Education', 'Workshop Practice', 'Computing Fundamentals', 'Engineering Science Lab I', 'Workshop Practice', 'Engineering Science Lab II', 'Programming in C Lab', 'Life Skill']; // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+
+function ct2021s1(id1) {
+    // alert("dfas");
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['Communication Skills in English', 'Mathematics', 'Applied Physics 1', 'Applied chemistry', 'Engineering Graphics', 'Applied Physcis Lab', 'Applied Chemistry lab', 'Introducton to IT systems Lab', 'Engineering workshop practice', 'Sports and yoga']; // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+function ct2021s2(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['Mathematics II', 'Applied Physics II', 'Environmental Science', 'Fundamentals of Electrical & Electronics Engineering', 'Problem Solving and Programming', 'Communication Skills in English Lab', '	Applied Physics Lab', 'Fundamentals of Eletrical & Electronics Engineering Lab', 'Problem Solving and Programming Lab', 'Engineering Workshop Practice']; // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+function ct2021s3(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['Computer Organisation', '	Programming in C', '	Programming in C', 'Digital Computer Fundamentals', 'Programming in C Lab', 'Database Management System lab', '	Digital Computer Fundamentals Lab', 'Web Technology lab', 'Computer System Hardware Lab']; // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}
+
+function ct2021s4(id1) {
+    const selectTag = document.getElementById(id1); // Get the select tag element
+    const options = ['Object Oriented Programming', 'Computer Communication and Networks', 'Data Structures', '	Community Skills in Indian knowledge system', 'Object Oriented Programming Lab', 'Web Programming Lab', 'Data Structures Lab', 'Application Development Lab', 'Minor Project']; // Options to add to the select tag
+
+    // Loop through each option and create a new option element for the select tag
+    for (let i = 0; i < options.length; i++) {
+        const option = document.createElement('option'); // Create a new option element
+        option.text = options[i]; // Set the text of the option element
+        option.value = options[i]; // Set the value of the option element (optional)
+        selectTag.appendChild(option); // Add the new option element to the select tag
+    }
+}

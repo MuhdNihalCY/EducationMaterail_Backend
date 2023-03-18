@@ -8,12 +8,12 @@ const { Stream } = require('stream');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  adminHelpers.GetHomeMaterials().then((data)=>{
+  adminHelpers.GetHomeMaterials().then((data) => {
     // console.log(data);
     var Video = data.Video;
     var Notes = data.Notes;
     var Q_P = data.Q_P;
-    res.render('users/home',{Video,Notes,Q_P});  
+    res.render('users/home', { Video, Notes, Q_P });
   })
 });
 
@@ -76,7 +76,7 @@ router.post('/addFile', (req, res) => {
           console.log("Error at img1 " + err)
         }
       })
-    }else{
+    } else {
       status = true;
       res.redirect('/');
     }
@@ -84,8 +84,21 @@ router.post('/addFile', (req, res) => {
 
 })
 
-router.get('/admin/downoadPDF/:id',(req,res)=>{
+router.get('/admin/downoadPDF/:id', (req, res) => {
   res.download('./public/files/' + req.params.id + ".pdf")
+})
+
+router.post('/getFiles', (req, res) => {
+  console.log(req.body); //{ Branch: 'ct', Revision: '2015', Semester: '3', Subject: '3' }
+  var formDta = req.body;
+  adminHelpers.getFiles(formDta).then((FilesData) => {
+    var Video = FilesData.Video;
+    var Notes = FilesData.Notes;
+    var Q_P = FilesData.Q_P;
+    res.render('users/home', { Video, Notes, Q_P });
+    // res.json(FilesData);
+  })
+
 })
 
 module.exports = router;
