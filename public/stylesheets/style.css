@@ -563,9 +563,9 @@ label {
 
 .AddFormDiv {
   margin-top: 5rem;
-  height: 100vh;
   /* width: 100vw; */
   /* background-color: var(--light); */
+  margin-bottom: 5rem;
   color: var(--DarkLight);
 
 }
@@ -584,7 +584,7 @@ label {
 }
 
 #AddFormDiv {
-  display: block;
+  display: none;
   /*make it none*/
 }
 
@@ -604,4 +604,9 @@ label {
 input[type="submit"] {
   margin-top: 25px;
   width: 50%;
+}
+
+.addText {
+  font-weight: 800;
+  text-decoration: underline;
 }

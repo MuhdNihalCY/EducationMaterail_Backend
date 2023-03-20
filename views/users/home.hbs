@@ -138,6 +138,7 @@
 <section>
     <div class="container">
         <div id="AddFormDiv" class="AddFormDiv">
+            <h3 id="addText" class="addText">Add Materials</h3>
             <form id="AddForm" action="/addFile" enctype="multipart/form-data" method="post">
                 <div class="row">
                     <div class="MaterialType col-12 col-md-6">
@@ -173,8 +174,8 @@
                         <label for="Stream">Material Stream</label>
                         <br>
                         {{!-- Stream Selecting to add --}}
-                        <select required name="stream" onchange="ADDFilterChange()" class="custom-select col-10" name="stream"
-                            id="AddBranch">
+                        <select required name="stream" onchange="ADDFilterChange()" class="custom-select col-10"
+                            name="stream" id="AddBranch">
                             <option value="" selected disabled>Select Branch</option>
                             <option value="ct">Computer Engineering</option>
                             <option value="ece">Electronic</option>
@@ -220,7 +221,7 @@
                         <label for="Sub">Material Subject</label>
                         <br>
                         {{!-- add Subject --}}
-                        <select required name="Sub" class="custom-select col-10"  id="AddSubject">
+                        <select required name="Sub" class="custom-select col-10" id="AddSubject">
                             <option value="" selected disabled>Select Subject</option>
 
                         </select>
@@ -250,10 +251,13 @@
             <div class="VideoHeadSec">
                 <h2 class="VideoHeading">Video</h2>
                 <!-- add More Video -->
-                <div id="addVideo" class=" addVideo">
-                    <p class="addText">Add Video</p>
-                    <img src="images/plus.png" alt="" class="Add">
-                </div>
+                <a href="#addText">
+                    <div id="addVideo" class=" addVideo">
+
+                        <p class="addText">Add Video</p>
+                        <img src="images/plus.png" alt="" class="Add">
+                    </div>
+                </a>
                 <!-- add More Video Ends HEre -->
             </div>
 
@@ -356,10 +360,12 @@
         <div class="container">
             <div class="NotesHeadDiv">
                 <h2 class="NotesHead">Notes</h2>
-                <div id="addnote" class=" addVideo">
-                    <p class="addText">Add Notes</p>
-                    <img src="images/plus.png" alt="" class="Add">
-                </div>
+                <a href="#addText">
+                    <div id="addnote" class=" addVideo">
+                        <p class="addText">Add Notes</p>
+                        <img src="images/plus.png" alt="" class="Add">
+                    </div>
+                </a>
             </div>
             <div class="NotesRow">
                 {{#if Notes}}
@@ -446,10 +452,12 @@
         <div class="container">
             <div class="Q_PHeadDiv">
                 <h2 class="Q_PHead">Q&P</h2>
-                <div id="addQ_P" class=" addQ_P">
-                    <p class="addText">Add Q&P</p>
-                    <img src="images/plus.png" alt="" class="Add">
-                </div>
+                <a href="#addText">
+                    <div id="addQ_P" class=" addQ_P">
+                        <p class="addText">Add Q&P</p>
+                        <img src="images/plus.png" alt="" class="Add">
+                    </div>
+                </a>
             </div>
             <div class="Q_PRow">
                 {{#if Q_P}}
@@ -539,7 +547,7 @@
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class=" feedbackLabel">Feedback Here :)</label>
             <input type="email" id="emailForFeedback" placeholder="It would be great, if you share your Email Address">
-            <textarea class="feedbackTexarea" id="Feedback"
+            <textarea class="feedbackTexarea" id="Feedbacks"
                 placeholder="Please share your feedback and any suggestions you may have. Additionally, let us know what types of documents you need, and we'll do our best to provide them."
                 rows="3"></textarea>
             <button id="FeedbackTag" class="feedbackBTN" onclick="sendFeedback()">Send Feedback</button>

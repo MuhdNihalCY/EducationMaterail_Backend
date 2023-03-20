@@ -40,7 +40,7 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
   adminHelpers.DoLogin(req.body).then((UserStatus) => {
-    // console.log(UserStatus);
+     console.log(UserStatus);
     res.json({ UserStatus })
   })
 

@@ -168,7 +168,7 @@ function DoSignup() {
 
 
     $.ajax({
-        url: 'http://localhost:3000/signup ',
+        url: '/signup ',
         method: 'POST',
         data: {
             number: number,
@@ -203,12 +203,12 @@ function DoSignup() {
 function DoLogin() {
     var email = document.getElementById("LoginEmail").value;
     var password = document.getElementById("LoginPaasword").value;
-
+    //alert("fdg")
     $.ajax({
-        url: 'http://localhost:3000/login ',
+        url: '/login ',     //'http://localhost:3000/login ',
         method: 'POST',
         data: {
-            email: email,
+            email: email, 
             password: password
         },
         success: function (response) {
@@ -237,7 +237,7 @@ function DoLogin() {
 }
 
 function sendFeedback() {
-    var Feedback = document.getElementById("Feedback").value;
+    var Feedback = document.getElementById("Feedbacks").value;
     var email = document.getElementById("emailForFeedback").value;
 
     if (Feedback) {
@@ -251,7 +251,7 @@ function sendFeedback() {
         // alert(Feedback)
 
         $.ajax({
-            url: 'http://localhost:3000/feedback',
+            url: '/feedback',
             method: 'POST',
             data: data,
             success: (response) => {
